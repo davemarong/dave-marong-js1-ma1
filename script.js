@@ -1,15 +1,12 @@
-async function getCatFacts() {
-  try {
-    const response = await fetch("https://cat-fact.herokuapp.com/facts");
-    const results = await response.json();
-    console.log(results.length);
-  } catch (error) {
-    console.log(error);
-  }
-}
-fetch("https://cat-fact.herokuapp.com/facts")
-  .then((response) => response.json())
-  .then((result) => console.log(result.length))
-  .catch((error) => console.log(error));
+const API_URL =
+  "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=wat";
 
-getCatFacts();
+async function callUrbanDictionary() {
+  const response = await fetch(API_URL, {
+    headers: {
+      key: "key",
+    },
+  });
+  const results = await response.json();
+  console.log(results);
+}
